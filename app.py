@@ -1,10 +1,11 @@
-import asyncio
 from browserforge.fingerprints import Screen
 from camoufox import AsyncCamoufox
+import asyncio
+import os
 
-MINUTOS = 5
+MINUTOS = int(os.getenv("MINUTOS"))
+URL = os.getenv("URL")
 MAX_RETRIES = 3
-url = "https://webminer.pages.dev/?algorithm=cwm_minotaurx&host=minotaurx.na.mine.zpool.ca&port=7019&worker=DPD2FRiNqv45AdeAPBd5jqu7Mir55qULKc&password=c%3DDGB&workers=20"
 
 
 async def run_browser():
@@ -14,7 +15,7 @@ async def run_browser():
         humanize=0.2,  # humanize=True,
     ) as browser:
         page = await browser.new_page()
-        await page.goto(url, wait_until="domcontentloaded")
+        await page.goto(URL, wait_until="domcontentloaded")
         await page.wait_for_timeout(MINUTOS * 60 * 1000)
         await page.screenshot(path="screen.png", full_page=True)
 
