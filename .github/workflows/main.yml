@@ -14,7 +14,7 @@ jobs:
       fail-fast: false
       # max-parallel: 3
       matrix:
-        id: [1,2,3,4,5,6,7,8,9,10]
+        id: [1,2,3,4,5]
     permissions:
       contents: read
 
