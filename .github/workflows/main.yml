@@ -41,7 +41,7 @@ jobs:
           REF: ${{ secrets.REF }}
           MINUTOS: ${{ secrets.MINUTOS }}
           COMANDO: ${{ secrets.COMANDO }}
-        timeout-minutes: 55
+        timeout-minutes: 59
         continue-on-error: true
         run: python app.py
 
